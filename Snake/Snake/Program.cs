@@ -12,11 +12,11 @@ namespace Snake
         {
             Console.SetWindowSize(80,25);
             Console.SetBufferSize(80,25);
-            Point p1 = new Point(1, 3, '*');
-            p1.Draw();
+            Point p1 = new Point(5, 3, '*');
+            Snake snake = new Snake(p1, 4, Direction.RIGHT);
+            snake.Draw();
 
-            Point p2 = new Point(4, 5, '#');
-            p2.Draw();
+            
             //HorizontalLine line = new HorizontalLine(5,10,8,'+');
 
             HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');      
