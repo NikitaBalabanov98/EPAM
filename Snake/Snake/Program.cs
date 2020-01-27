@@ -28,6 +28,9 @@ namespace Snake
             {
                 if (walls.IsHIt(snake) || snake.IsHitTail())
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.SetCursorPosition(80/2-5, 25/2);
+                    Console.WriteLine("Game over!");
                     break;
                 }
                 if (snake.Eat(food))
