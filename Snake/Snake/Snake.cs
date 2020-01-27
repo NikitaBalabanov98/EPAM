@@ -48,5 +48,19 @@ namespace Snake
             else if (key == ConsoleKey.UpArrow) direction = Direction.UP;
 
         }
+
+
+        public bool Eat (Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                food.Draw();
+                pList.Add(food);
+                return true;
+            }
+            else return false;
+        }
     }
 }
