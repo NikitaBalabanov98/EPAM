@@ -8,19 +8,21 @@ namespace Snake
 {
     class Snake : Figure
     {
+        public int eatCount;
         public Direction direction;
         public Snake(Point tail, int lenght, Direction _direction)
         {
+            eatCount = 0;
             direction = _direction;
             pList = new List<Point>();
-            for(int i = 0; i< lenght; i++)
+            for (int i = 0; i < lenght; i++)
             {
                 Point p = new Point(tail);
                 p.Move(i, direction);
                 pList.Add(p);
             }
         }
-
+ 
         internal void Move()
         {
             Point tail = pList.First();
@@ -30,6 +32,8 @@ namespace Snake
 
             tail.Clear();
             head.Draw();
+            Console.SetCursorPosition(3, 26);
+            Console.Write("Еды съедено: " + eatCount);
         }
 
         internal bool IsHitTail()
@@ -65,6 +69,7 @@ namespace Snake
             Point head = GetNextPoint();
             if (head.IsHit(food))
             {
+                eatCount++;
                 food.sym = head.sym;
                 food.Draw();
                 pList.Add(food);
