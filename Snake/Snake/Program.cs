@@ -10,59 +10,39 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            int x = 1;
-            Func1(x);
-            Console.WriteLine("Call Func1. x = " + x);
-
-            x = 1;
-            Func2(x);
-            Console.WriteLine("Call Func2. x = " + x);
-
-            x = 1;
-            Func3(x);
-            Console.WriteLine("Call Func3. x = " + x);
-
+           
 
             Point p1 = new Point(1, 3, '*');
-            Move(p1, 10, 10);
-            Console.WriteLine("Call Move.p1.x = " + p1.x + ", p1.y = " + p1.y);
+            p1.Draw();
 
             Point p2 = new Point(4, 5, '#');
-            p1 = p2;
-            p2.x = 8;
-            p2.y = 8;
-            Console.WriteLine("p1=p2. p1.x = " + p1.x + ", p1.y = " + p1.y + ", p2.x = " + p2.x + ", p2.y = " + p2.y);
+            p2.Draw();
+            Point p3 = new Point(6, 2, '&');
 
-            
+            Point p4 = new Point(3, 5, '%');
+            List<Point> Plist = new List<Point>();
+            Plist.Add(p1);
+            Plist.Add(p2);
+            Plist.Add(p3);
+            Plist.Add(p4);
 
+            List<int> numlist = new List<int>();
+            numlist.Add(0);
+            numlist.Add(1);
+            numlist.Add(2);
+
+            int x = numlist[0];
+            int y = numlist[1];
+            int z = numlist[2];
+            Console.WriteLine();
+            foreach (int i in numlist)
+            {
+            Console.WriteLine(i);
+
+
+            numlist.Remove(0);
             Console.ReadLine();
         }
-        static void Func1(int value)
-        {
-
-
-        }
-        static void Func2(int value)
-        {
-            value = value + 1;
-
-        }
-
-        static void Func3(int X)
-        {
-            X = X + 1;
-        }
-        static void Move(Point p, int dx, int dy)
-        {
-            //p.x = p.x + dx;
-            //p.y = p.y + dy;
-            p.x += dx;
-            p.y += dy;
-        }
-
-        static void Reset(Point p)
-        {
-            p = new Point();
-        }
+        
     }
 }
